@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% load static %} {% block head %}
+<link rel="stylesheet" href="{% static 'css/habits/habit-detail.css' %}" />
+{% endblock %} {% block content %}
+<section class="habit-container">
+  <div class="habit-details">
+    <h1>{{ habit.name }}</h1>
+    <h2>{{ habit.description }}</h2>
+    <div class="habit-actions">
+        <a href="{% url 'update-habit' habit.id %}" class="btn warn">Edit</a>
+        <a href="{% url 'delete-habit' habit.id %}" class="btn danger">Delete</a>
+    </div>
+  </div>
+</section>
+{% endblock %}
