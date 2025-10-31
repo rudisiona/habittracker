@@ -11,4 +11,37 @@
     </div>
   </div>
 </section>
+
+<div class="frequency">
+<h3>Goal Days: </h3>
+{% if habit.days %}
+  <ul>
+    {% for day_code, day_label in habit.get_day_labels %}
+      <li>{{ day_label }}</li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No days selected.</p>
+{% endif %}
+</div>
+<div>
+  <form action="{% url 'mark-complete' habit.id %}" method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn submit">Mark Complete</button>
+  </form>
+  <section>
+      <h3>Completed:</h3>
+    <table>
+      <tbody>
+        {% for completion in habit.completions.all %}
+          <tr>
+            <td>{{ completion.timestamp|date:"l, M d, Y" }}</td>
+          </tr>
+        {% empty %}
+            <tr><td>No completions yet.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+</div>
 {% endblock %}

@@ -11,12 +11,19 @@
     {% endif %}
 </div>
   
-<form action="" method="post" class="form-container">
-    {% csrf_token %}
-    <table>
-      {{ form.as_table }}
-    </table>
-    <button type="submit" class="btn submit">Submit!</button>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.name.label_tag }} {{ form.name }}
+  <br><br>
+    {{ form.description.label_tag }}
+    {{ form.description }}
+  <br><br>
+  {{ form.days.label_tag }}
+  <div>
+  {{ form.days }}
+  </div>
+  <br><br>
+  <button type="submit">Save</button>
 </form>
-  
   {% endblock %}
