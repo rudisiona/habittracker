@@ -10,5 +10,5 @@ urlpatterns = [
     path('habitrabbits/<int:pk>/delete/', views.DeleteHabit.as_view(), name='delete-habit'),
     path('habitrabbits/<int:habit_id>/complete/', views.mark_complete, name='mark-complete'),
     path('accounts/signup/', views.signup, name='signup'),
-
+    path('accounts/login/', views.login, name='login')
 ]

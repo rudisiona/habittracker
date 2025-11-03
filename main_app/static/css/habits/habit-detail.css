@@ -1,0 +1,36 @@
+main {
+    color: #f26913;
+
+}
+.habit-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.frequency {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.habit-actions {
+    display: flex;
+    justify-content: center;
+
+}
+.habit-actions a {
+    color: #f26913;
+    text-decoration: none;
+    padding: 5px;
+}
+.habit-actions a:hover {
+    color: #e3221e;  
+    text-decoration: none;
+}
+
+.completion {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}

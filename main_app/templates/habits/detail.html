@@ -5,26 +5,27 @@
   <div class="habit-details">
     <h1>{{ habit.name }}</h1>
     <h2>{{ habit.description }}</h2>
+  </div>
+    <div class="frequency">
+      <h3>Goal Days: </h3>
+      {% if habit.days %}
+        <ul>
+          {% for day_code, day_label in habit.get_day_labels %}
+            <li>{{ day_label }}</li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>No days selected.</p>
+      {% endif %}
+      </div>
     <div class="habit-actions">
         <a href="{% url 'update-habit' habit.id %}" class="btn warn">Edit</a>
         <a href="{% url 'delete-habit' habit.id %}" class="btn danger">Delete</a>
     </div>
-  </div>
 </section>
 
-<div class="frequency">
-<h3>Goal Days: </h3>
-{% if habit.days %}
-  <ul>
-    {% for day_code, day_label in habit.get_day_labels %}
-      <li>{{ day_label }}</li>
-    {% endfor %}
-  </ul>
-{% else %}
-  <p>No days selected.</p>
-{% endif %}
-</div>
-<div>
+
+<div class="completion">
   <form action="{% url 'mark-complete' habit.id %}" method="POST">
     {% csrf_token %}
     <button type="submit" class="btn submit">Mark Complete</button>

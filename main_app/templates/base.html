@@ -5,18 +5,23 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" type="image/png" href="" />
+    <link rel="icon" type="image/png" href="{% static 'image/favicon.ico' %}" />
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <title>Habit Rabbit</title>
-    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
     {% block head %} 
     {% endblock %}
   </head>
   <body>
     <header>
+      <div class="header">
+        <a href="/">
+          <h2>HabitRabbit</h2>
+        </a>
+      </div>
       <nav>
         <ul>
           {% if user.is_authenticated %}
-          <li><a href="{% url 'home' %}">Home</a></li>
+          <!-- <li><a href="{% url 'home' %}">Home</a></li> -->
           <li><a href="{% url 'habit-index' %}">Habit Rabbits</a></li>
           <li><a href="{% url 'create-habit' %}">Create a Habbit Rabbit</a></li>
           <li>
@@ -27,7 +32,7 @@
           </li>
           {% else %} 
           <li><a href="{% url 'home' %}">Home</a></li>
-          <li><a href="{% url 'home' %}">Login</a></li>
+          <li><a href="{% url 'login' %}">Login</a></li>
           <li><a href="{% url 'signup' %}">Sign Up</a></li>
           {% endif %}
         </ul>

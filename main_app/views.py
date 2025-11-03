@@ -4,10 +4,10 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.views import LoginView
 from django.utils import timezone
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from .models import Habit, Completion
 from .forms import HabitForm
 # from .forms import CompletionForm
@@ -29,7 +29,10 @@ class CreateHabit(CreateView):
     model = Habit
     form_class = HabitForm 
     template_name = 'main_app/habit_form.html'
-    success_url = reverse_lazy('habit-index')
+    def get_success_url(self):
+        # after saving, redirect to the habit detail page for this habit
+        return reverse('habit-detail', kwargs={'habit_id': self.object.id})
+    # success_url = reverse_lazy('habit-index')
     def form_valid(self, form):
         form.instance.user = self.request.user 
         return super().form_valid(form)
@@ -40,7 +43,9 @@ class UpdateHabit(UpdateView):
     model = Habit
     form_class = HabitForm    
     template_name = 'main_app/habit_form.html'
-    success_url = reverse_lazy('habit-index')
+    def get_success_url(self):
+        # after saving, redirect to the habit detail page for this habit
+        return reverse('habit-detail', kwargs={'habit_id': self.object.id})
     # fields = ['description']
 
 class DeleteHabit(DeleteView):
@@ -83,3 +88,19 @@ def signup(request):
     form = UserCreationForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'signup.html', context)
+
+def login(request):
+    error_message = ''
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return redirect('habit-index')  # redirect wherever you want
+        else:
+            error_message = 'Invalid username or password'
+    else:
+        form = AuthenticationForm()
+    
+    context = {'form': form, 'error_message': error_message}
+    return render(request, 'login.html', context)

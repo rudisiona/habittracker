@@ -1,16 +1,21 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
-<link rel="stylesheet" href="{% static 'css/home.css'}" />
+{% extends 'base.html' %} {% load static %}
+{% block head %} 
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
+{% endblock %}
+{% block content %}
+<div class="welcome">
 <h1>Welcome to Habbit Rabbit</h1>
+</div>
 {% if not user.is_authenticated %}
 <section>
+
+    <h2> 
+        <a href="{% url 'login' %}">Log In</a>
+        or 
+        <a href="{% url 'signup' %}">Sign Up </a>
+        now to start tracking your habits and adopting rabbits.</h2>
     <form action="{% url 'home' %}" method="post" class="login">
        
-        
-      <h1>Login</h1>
-      {% csrf_token %} {{ form.as_p }}
-      <input type="hidden" name="next" value="{{ next }}" />
-      <button type="submit" class="btn submit">Login</button>
-    </form>
   </section>
   {% endif %} 
   {% endblock %}

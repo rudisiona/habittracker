@@ -1,0 +1,23 @@
+.welcome {
+    display: flex;
+    justify-content: center;
+    color: #f27916;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    color: #f27916;
+}
+
+
+section a { 
+    text-decoration: none;
+    color: #f26913;
+}
+  
+section a:hover {
+    color: #e3221e;  
+    text-decoration: none;
+  }
+  

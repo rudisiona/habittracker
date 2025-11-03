@@ -1,0 +1,56 @@
+/* Layout for header */
+header {
+    display: flex;
+    justify-content: space-between;  
+    align-items: center;            
+    padding: 0.5rem 2rem;
+ 
+  }
+  
+  /* Header title */
+  .header h2 {
+    margin: 0;
+    font-size: 28px;
+    color: #f27916;
+  }
+
+  .header a {
+    text-decoration: none;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;      
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #f27916;
+    font-size: 20px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+  
+  .header h2:hover, nav a:hover {
+    color: #e3221e;  
+  }
+  
+  #logout-form button {
+    background: none;
+    border: none;
+    color: #f27916;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+  }
+  
+  #logout-form button:hover {
+    color: #e3221e;
+  }
+  body {
+    background-color: lightblue;
+
+  }
