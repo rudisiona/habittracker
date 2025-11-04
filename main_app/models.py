@@ -2,7 +2,8 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.postgres.fields import ArrayField
 from django.contrib.auth.models import User
-
+from django.utils import timezone
+from datetime import timedelta
 
 # Create your models here.
 
@@ -22,6 +23,7 @@ class Habit(models.Model):
     description = models.TextField(max_length=250)
     days = ArrayField(models.CharField(max_length=3, choices=WEEK_DAYS), blank=True, default=list)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    streak = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return self.name
@@ -32,9 +34,18 @@ class Habit(models.Model):
     def get_day_labels(self):
         label_map = dict(WEEK_DAYS)
         return [(day, label_map.get(day, day)) for day in self.days]
+    
+    def display_streak(self):
+        return f"{self.get_streak()} 🔥" 
+
+    def get_streak(self):
+        return self.completions.count()
+
+
 
 class Completion(models.Model):
     habit = models.ForeignKey(Habit, on_delete=models.CASCADE, related_name='completions')
     timestamp = models.DateTimeField(auto_now_add=True)
+    
     def __str__(self):
         return f"{self.habit.name} at {self.timestamp.strftime('%Y-%m-%d %H:%M')}"

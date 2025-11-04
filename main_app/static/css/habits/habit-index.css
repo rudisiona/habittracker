@@ -1,14 +1,27 @@
 .page-header {
     display: flex;
     justify-content: center;
-    color: #f27916;
+    font-size: 20px;
+    color: #f26913;
+    font-family: "Original Surfer", sans-serif;
+    text-shadow:
+    -3px -3px 0 green,  
+     3px -3px 0 green,  
+    -3px  3px 0 green,  
+     3px  3px 0 green;  
 }
 
 .card-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: #f27916;
+    color: #f58d05;
+    font-family: "Original Surfer", sans-serif;
+    text-shadow:
+    -1px -1px 0 white,  
+     1px -1px 0 white,  
+    -1px  1px 0 white,  
+     1px  1px 0 white;  
     list-style: none;
     text-decoration: none;
     transition: color 0.2s ease;
@@ -18,6 +31,7 @@
 .card-container a { 
     text-decoration: none;
     color: #f26913;
+    font-size: 25px;
 }
   
 .card-container a:hover {
@@ -26,12 +40,15 @@
   }
 
 .card-content {
-    border: 2px solid orange;
+    border: 2px dashed orange;
     width: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
     
 }
+ h4 {
+    font-size: 30px;
+ }
   
 

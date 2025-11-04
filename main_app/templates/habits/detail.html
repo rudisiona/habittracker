@@ -3,13 +3,21 @@
 {% endblock %} {% block content %}
 <section class="habit-container">
   <div class="habit-details">
+    <div class="streak">
+      {% if habit.get_streak > 2 %}
+     <p>🔥 You're on fire! Streak: {{ habit.display_streak }}</p>
+      {% else %}
+       <p>Keep going!</p>
+      {% endif %}
+      </div>
+    <img src="{% static 'image/rabbit.png' %}" alt="Rabbit Mascot" width="200" height="200">
     <h1>{{ habit.name }}</h1>
     <h2>{{ habit.description }}</h2>
   </div>
     <div class="frequency">
       <h3>Goal Days: </h3>
-      {% if habit.days %}
-        <ul>
+      {% if habit.days  %}
+        <ul class="freq-list">
           {% for day_code, day_label in habit.get_day_labels %}
             <li>{{ day_label }}</li>
           {% endfor %}
@@ -20,21 +28,21 @@
       </div>
     <div class="habit-actions">
         <a href="{% url 'update-habit' habit.id %}" class="btn warn">Edit</a>
+
         <a href="{% url 'delete-habit' habit.id %}" class="btn danger">Delete</a>
     </div>
-</section>
-
 
 <div class="completion">
   <form action="{% url 'mark-complete' habit.id %}" method="POST">
     {% csrf_token %}
-    <button type="submit" class="btn submit">Mark Complete</button>
   </form>
-  <section>
+
       <h3>Completed:</h3>
-    <table>
+      <button type="submit" class="btn complete">Mark Complete</button>
+    <br />
+      <table>
       <tbody>
-        {% for completion in habit.completions.all %}
+        {% for completion in habit.completions.all|dictsortreversed:"timestamp" %}
           <tr>
             <td>{{ completion.timestamp|date:"l, M d, Y" }}</td>
           </tr>
@@ -43,6 +51,6 @@
         {% endfor %}
       </tbody>
     </table>
-  </section>
 </div>
+</section>
 {% endblock %}

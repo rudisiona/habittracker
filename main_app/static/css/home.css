@@ -1,23 +1,48 @@
 .welcome {
     display: flex;
     justify-content: center;
-    color: #f27916;
+    font-size: 25px;
+    font-family: "Original Surfer", sans-serif;
+    color: #f58d05;
+    text-shadow:
+    -1px -1px 0 white,
+    1px -1px 0 white,
+    -1px  1px 0 white,
+    1px  1px 0 white; 
+    
 }
 
 section {
     display: flex;
     justify-content: center;
-    color: #f27916;
+    color:  #f58d05;
+    font-size: 20px;
+    font-family: "Original Surfer", sans-serif;
+    text-shadow:
+    -1px -1px 0 white,
+    1px -1px 0 white,
+    -1px  1px 0 white,
+    1px  1px 0 white; 
 }
 
 
 section a { 
     text-decoration: none;
-    color: #f26913;
+    font-family: "DynaPuff", system-ui;
+    color: #f58d05;
+    text-shadow:
+    -1px -1px 0 white,
+    1px -1px 0 white,
+    -1px  1px 0 white,
+    1px  1px 0 white;
+    /* text-shadow:
+    -1px -1px 0 #48c213, 
+     1px -1px 0 #48c213, 
+    -1px  1px 0 #48c213, 
+     1px  1px 0 #48c213;   */
 }
   
 section a:hover {
     color: #e3221e;  
     text-decoration: none;
   }
-  

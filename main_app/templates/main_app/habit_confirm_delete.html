@@ -10,6 +10,7 @@
 <div class="confirm-buttons">
 <form action="" method="post" class="form">
   {% csrf_token %}
+  
   <a href="{% url 'habit-detail' habit.id %}" class="btn secondary">Cancel</a>
   <button type="submit" class="btn danger">Yes - Delete!</button>
 </form>

@@ -11,8 +11,7 @@
     {% endif %}
 </div>
   
-
-<form method="post">
+<form method="post" class="create-habit">
   {% csrf_token %}
   {{ form.name.label_tag }} {{ form.name }}
   <br><br>
@@ -23,7 +22,9 @@
   <div>
   {{ form.days }}
   </div>
-  <br><br>
-  <button type="submit">Save</button>
+  <br>
+
+  <button type="submit" class="btn submit">Save</button>
+
 </form>
   {% endblock %}

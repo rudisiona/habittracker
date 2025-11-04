@@ -10,8 +10,15 @@ header {
   /* Header title */
   .header h2 {
     margin: 0;
-    font-size: 28px;
-    color: #f27916;
+    font-size: 36px;
+    color: #f26913;
+    font-weight: bold;
+    font-family: "Original Surfer", sans-serif;
+    text-shadow:
+      -3px -3px 0 green,  
+      3px -3px 0 green,  
+      -3px  3px 0 green,  
+      3px  3px 0 green;  
   }
 
   .header a {
@@ -20,16 +27,24 @@ header {
   
   nav ul {
     list-style: none;
+    font-family: "DynaPuff", system-ui;
     display: flex;
     gap: 1.5rem;      
     margin: 0;
     padding: 0;
+    text-shadow:
+      -1px -1px 0 white,
+      1px -1px 0 white,
+      -1px  1px 0 white,
+      1px  1px 0 white; 
   }
+    
+
   
   nav a {
     text-decoration: none;
     color: #f27916;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 500;
     transition: color 0.2s ease;
   }
@@ -41,16 +56,26 @@ header {
   #logout-form button {
     background: none;
     border: none;
-    color: #f27916;
+    font-size: 1em;
+    font-family: "DynaPuff", system-ui;
+    color: red;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.1em;
     transition: color 0.2s ease;
+    text-shadow:
+      -1px -1px 0 white,
+      1px -1px 0 white,
+      -1px  1px 0 white,
+      1px  1px 0 white; 
   }
   
   #logout-form button:hover {
     color: #e3221e;
   }
   body {
-    background-color: lightblue;
-
+    background-image: url("../image/background.jpg");
+    background-repeat: no-repeat;   
+    background-size: cover;      
+    background-position: center;    
+    background-attachment: fixed;   
   }

@@ -37,8 +37,6 @@ class CreateHabit(CreateView):
         form.instance.user = self.request.user 
         return super().form_valid(form)
 
-
-
 class UpdateHabit(UpdateView):
     model = Habit
     form_class = HabitForm    
@@ -63,9 +61,9 @@ def habit_index(request):
 @login_required
 def habit_detail(request, habit_id):
     habit = Habit.objects.get(id=habit_id)
-    return render(request, 'habits/detail.html', {'habit': habit})
+    completions = habit.completions.order_by('-timestamp') 
+    return render(request, 'habits/detail.html', {'completions': completions, 'habit': habit})
 
-@login_required
 def mark_complete(request, habit_id):
     habit = get_object_or_404(Habit, id=habit_id)
     today = timezone.now().date()

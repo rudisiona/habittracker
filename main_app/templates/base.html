@@ -7,17 +7,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="{% static 'image/favicon.ico' %}" />
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Notable&family=Original+Surfer&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Original+Surfer&display=swap" rel="stylesheet">
     <title>Habit Rabbit</title>
     {% block head %} 
     {% endblock %}
   </head>
   <body>
     <header>
+      {% if user.is_authenticated %}
+      <div class="header">
+        <a href="{% url 'habit-index' %}">
+          <h2>HabitRabbit</h2>
+        </a>
+      </div>
+      {% else %} 
       <div class="header">
         <a href="/">
           <h2>HabitRabbit</h2>
         </a>
       </div>
+      {% endif %}
+
       <nav>
         <ul>
           {% if user.is_authenticated %}

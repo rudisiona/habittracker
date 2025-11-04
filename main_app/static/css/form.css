@@ -1,16 +1,80 @@
 form {
     display: flex;
     flex-direction: column;
+    font-size: 18px;
     align-items: center;
-    color: #e3221e;  
+    gap: 5px;
+    color: #f58d05;
+    text-shadow:
+    -1px -1px 0 white,
+    1px -1px 0 white,
+    -1px  1px 0 white,
+    1px  1px 0 white;  
 
 }
+.btn.submit {
+    font-family: "Original Surfer", sans-serif;
+    font-size: 22px;
+    background-color: rgba(245, 141, 5, 0.7);
+    border-radius: 10px;
+    border-color: white;
+    color: white;
+    
+}
+.create.btn {
+    font-family: "Original Surfer", sans-serif;
+    font-size: 22px;
+    background-color: rgba(245, 141, 5, 0.7);
+    border-radius: 10px;
+    border-color: white;
+    color: white;     
+}
+.create-habit {
+    font-size: 1.5em;
+    font-family: "Original Surfer", sans-serif;
+  
+}
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    font-size: 25px;
+    align-items: center;
+    font-family: "Original Surfer", sans-serif;
+
+}
+
+.signup-form th {
+    text-align: right;
+    padding-right: 10px;
+    vertical-align: middle;
+    white-space: nowrap;
+  } 
+  
+.signup-form td input {
+    width: 220px; 
+    padding: 5px;
+    box-sizing: border-box;
+    margin-top: 60px;
+  }
+.helptext {
+    display: block;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px; 
+  }
 
 .page-header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: #f26913;
+    color: #f58d05;
+    text-shadow:
+    -1px -1px 0 white,
+    1px -1px 0 white,
+    -1px  1px 0 white,
+    1px  1px 0 white;   
+    font-size: 1.5em;
+    font-family: "Original Surfer", sans-serif;
 }
 
 #login-form button {
@@ -22,20 +86,42 @@ form {
     transition: color 0.2s ease;
   }
   
-#login-form button:hover {
-    color: #e3221e;
-  }
-
-.confirm-buttons {
-    margin: 15px;
+.login {
+    font-size: 25px;
+    font-family: "Original Surfer", sans-serif;
 }
+#id_username {
+    width: 220px; 
+    padding: 5px;
+    box-sizing: border-box;
+    margin-top: 60px;
+  }
+  #id_password {
+    width: 220px; 
+    padding: 5px;
+    box-sizing: border-box;
+    margin-top: 60px;
+  }
 .confirm-buttons a {
-    color: #f27916;
-    text-decoration: none;
+    color: white;
+    text-shadow: none;
 
-  }
-.confirm-buttons a:hover {
-    color: #e3221e;  
+}
+  .btn.secondary {
+    font-family: "Original Surfer", sans-serif;
+    background-color: rgba(74, 70, 70, 0.629);
+    padding: 5px;
+    font-weight: 100;
+    font-size: 1em;
+    border: 2px solid white;
+    border-radius: 10px;
     text-decoration: none;
-
   }
+.btn.danger {
+    font-family: "Original Surfer", sans-serif;
+    font-size: 22px;
+    background-color: rgba(192, 53, 53, 0.7);
+    border-radius: 10px;
+    border: 2px solid  rgb(255, 0, 0);;
+    color: rgb(249, 245, 245);
+}
