@@ -83,7 +83,7 @@ def login_view(request):
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
             user = form.get_user()
-            auth_login(request, user)
+            login(request, user)
             return redirect('habit-index')  
         else:
             error_message = 'Invalid username or password'
