@@ -5,11 +5,10 @@
     font-family: "Original Surfer", sans-serif;
     color: #f58d05;
     text-shadow:
-    -1px -1px 0 white,
-    1px -1px 0 white,
-    -1px  1px 0 white,
-    1px  1px 0 white; 
-    
+    -1px -1px 0 green,
+    1px -1px 0 green,
+    -1px  1px 0 green,
+    1px  1px 0 green;   
 }
 
 section {
@@ -25,7 +24,6 @@ section {
     1px  1px 0 white; 
 }
 
-
 section a { 
     text-decoration: none;
     font-family: "DynaPuff", system-ui;
@@ -35,14 +33,9 @@ section a {
     1px -1px 0 white,
     -1px  1px 0 white,
     1px  1px 0 white;
-    /* text-shadow:
-    -1px -1px 0 #48c213, 
-     1px -1px 0 #48c213, 
-    -1px  1px 0 #48c213, 
-     1px  1px 0 #48c213;   */
 }
   
 section a:hover {
     color: #e3221e;  
     text-decoration: none;
-  }
+}

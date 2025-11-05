@@ -5,7 +5,6 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 from datetime import timedelta
 
-# Create your models here.
 
 WEEK_DAYS = [
     ('mon', 'Monday'),

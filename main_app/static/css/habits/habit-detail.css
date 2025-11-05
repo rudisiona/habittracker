@@ -10,6 +10,7 @@ h1 {
 h2 {
     font-size: 25px;
 }
+
 .habit-details {
     display: flex;
     flex-direction: column;
@@ -58,15 +59,7 @@ h2 {
     border: 2px solid white;
     border-radius: 10px;
 }
-/* {
-    font-family: "Original Surfer", sans-serif;
-    font-size: 22px;
-    background-color: rgba(245, 141, 5, 0.7);
-    border-radius: 10px;
-    border-color: white;
-    color: white;
-    
-} */
+
 .habit-actions a:hover {
     color: #e3221e;
     text-decoration: none;
@@ -88,6 +81,7 @@ h2 {
     font-size: 20px;
     color: red;
 }
+
 .btn.complete {
     font-family: "Original Surfer", sans-serif;
     font-size: 22px;
@@ -95,5 +89,5 @@ h2 {
     border-radius: 10px;
     border-color: white;
     color: white;
-    
+    cursor: pointer;
 }

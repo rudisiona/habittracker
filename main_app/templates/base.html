@@ -32,7 +32,6 @@
       <nav>
         <ul>
           {% if user.is_authenticated %}
-          <!-- <li><a href="{% url 'home' %}">Home</a></li> -->
           <li><a href="{% url 'habit-index' %}">Habit Rabbits</a></li>
           <li><a href="{% url 'create-habit' %}">Create a Habbit Rabbit</a></li>
           <li>

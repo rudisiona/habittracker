@@ -10,29 +10,13 @@ from django.utils import timezone
 from django.urls import reverse_lazy, reverse
 from .models import Habit, Completion
 from .forms import HabitForm
-# from .forms import CompletionForm
-
-
-# Create your views here.
-
-# class Habit:
-#      def __init__(self, name, description):
-#         self.name = name
-#         self.description = description
-
-# habits = [
-#     Habit('drink water', '3 times a day'),
-#     Habit('take vitamins', 'once a day')
-# ]
 
 class CreateHabit(CreateView):
     model = Habit
     form_class = HabitForm 
     template_name = 'main_app/habit_form.html'
     def get_success_url(self):
-        # after saving, redirect to the habit detail page for this habit
         return reverse('habit-detail', kwargs={'habit_id': self.object.id})
-    # success_url = reverse_lazy('habit-index')
     def form_valid(self, form):
         form.instance.user = self.request.user 
         return super().form_valid(form)
@@ -42,9 +26,7 @@ class UpdateHabit(UpdateView):
     form_class = HabitForm    
     template_name = 'main_app/habit_form.html'
     def get_success_url(self):
-        # after saving, redirect to the habit detail page for this habit
         return reverse('habit-detail', kwargs={'habit_id': self.object.id})
-    # fields = ['description']
 
 class DeleteHabit(DeleteView):
     model = Habit
@@ -62,11 +44,18 @@ def habit_index(request):
 def habit_detail(request, habit_id):
     habit = Habit.objects.get(id=habit_id)
     completions = habit.completions.order_by('-timestamp') 
-    return render(request, 'habits/detail.html', {'completions': completions, 'habit': habit})
+    today = timezone.localdate()
+    completed_today = habit.completions.filter(timestamp__date=today).exists()
+    context = {
+        'habit': habit,
+        'completions': completions,
+        'completed_today': completed_today
+    }
+    return render(request, 'habits/detail.html', context)
 
 def mark_complete(request, habit_id):
     habit = get_object_or_404(Habit, id=habit_id)
-    today = timezone.now().date()
+    today = timezone.localdate()
     already_done = habit.completions.filter(timestamp__date=today).exists()
     if not already_done:
         Completion.objects.create(habit=habit)
@@ -87,14 +76,14 @@ def signup(request):
     context = {'form': form, 'error_message': error_message}
     return render(request, 'signup.html', context)
 
-def login(request):
+def login_view(request):
     error_message = ''
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
             user = form.get_user()
-            login(request, user)
-            return redirect('habit-index')  # redirect wherever you want
+            auth_login(request, user)
+            return redirect('habit-index')  
         else:
             error_message = 'Invalid username or password'
     else:
