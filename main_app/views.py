@@ -32,6 +32,7 @@ class DeleteHabit(DeleteView):
     model = Habit
     success_url='/habitrabbits/'
 
+
 class Home(LoginView):
     template_name = 'home.html'
 
