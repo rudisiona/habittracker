@@ -7,18 +7,18 @@
       {% if habit.get_streak > 2 %}
      <p>🔥 You're on fire! Streak: {{ habit.display_streak }}</p>
       {% else %}
-       <p>Keep going to start a streak!</p>
+      <p>Mark Complete 3 days in a row to start a streak!</p>
       {% endif %}
       </div>
 
       {% if completed_today %}
-      <img src="{% static 'image/rabbit.png' %}" alt="Awake Rabbit" width="200" height="200">
+      <img src="{% static 'image/rabbit.png' %}" alt="Awake Rabbit" width="220" height="250">
       <h3>Habbit Rabbit Awoken!</h3>
       {% else %}
       <img src="{% static 'image/sleeping.png' %}" alt="Sleeping Rabbit" width="250" height="170">
       <h3>Mark Complete for the day to wake up Habit Rabbit!</h3>
       {% endif %}
-      
+
     <h2>{{ habit.description }}</h2>
   </div>
     <div class="frequency">
