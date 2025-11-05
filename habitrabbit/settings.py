@@ -135,7 +135,6 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / "staticfiles"
-
 LOGIN_URL = 'home'
 LOGIN_REDIRECT_URL = 'habit-index'
 LOGOUT_REDIRECT_URL = 'home'
